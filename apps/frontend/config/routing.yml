@@ -4,6 +4,12 @@ paciente:
     model:                Paciente
     module:               pacientes
     prefix_path:          /pacientes
+doctor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Doctor
+    module:               doctor
+    prefix_path:          /doctor
     column:               id
     with_wildcard_routes: true
 
