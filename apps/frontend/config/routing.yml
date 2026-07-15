@@ -25,6 +25,9 @@ cita:
     column:               id
     with_wildcard_routes: true
 
+libros:
+  url:   /libros
+  param: { module: libros, action: index }
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
