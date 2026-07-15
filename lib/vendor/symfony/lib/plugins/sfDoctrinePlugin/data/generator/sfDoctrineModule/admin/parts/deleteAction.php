@@ -6,7 +6,7 @@
 
     if ($this->getRoute()->getObject()->delete())
     {
-      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+      $this->getUser()->setFlash('notice', ' El item fue eliminado correctamente');
     }
 
     $this->redirect('@<?php echo $this->getUrlForAction('list') ?>');

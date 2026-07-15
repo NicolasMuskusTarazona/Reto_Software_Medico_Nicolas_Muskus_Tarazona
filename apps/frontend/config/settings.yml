@@ -8,7 +8,7 @@ prod:
 
 dev:
   .settings:
-    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    error_reporting:        <?php echo (E_ALL | E_STRICT) & ~E_DEPRECATED & ~E_NOTICE ?>
     web_debug:              true
     cache:                  false
     no_script_name:         false
@@ -16,16 +16,22 @@ dev:
 
 test:
   .settings:
-    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    error_reporting:        <?php echo (E_ALL | E_STRICT) & ~E_DEPRECATED & ~E_NOTICE ?>
     cache:                  false
     web_debug:              false
     no_script_name:         false
     etag:                   false
 
 all:
+  # redirrecion 
+  .actions:
+    login_module: sfGuardAuth
+    login_action: signin
+  
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            61fee52fa3f4dd1824e16b3af729272d28610615
+    error_reporting: <?php echo (E_ALL | E_STRICT) & ~E_DEPRECATED & ~E_NOTICE ?>
 
     # Output escaping settings
     escaping_strategy:      true
@@ -33,3 +39,8 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    # diseño login
+    enabled_modules:        [default, sfGuardAuth]
+
+
