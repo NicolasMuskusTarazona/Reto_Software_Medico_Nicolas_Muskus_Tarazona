@@ -27,8 +27,8 @@
                     <td><?php echo isset($libro['title']) ? htmlspecialchars($libro['title']) : '—' ?></td>
                     <td>
                         <?php
-                            if (isset($libro['author_name']) && is_array($libro['author_name']) && count($libro['author_name']) > 0):
-                                echo htmlspecialchars(implode(', ', $libro['author_name']));
+                            if (isset($libro['author_name']) && count($libro['author_name']) > 0):
+                                echo htmlspecialchars(implode(', ', iterator_to_array($libro['author_name'])));
                             else:
                                 echo '—';
                             endif;
@@ -40,6 +40,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
 
     <?php use_stylesheet('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css') ?>
     <?php use_javascript('https://code.jquery.com/jquery-3.6.0.min.js') ?>
@@ -54,5 +55,6 @@
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros"}
         });
     });
+
     </script>
 <?php endif; ?>
