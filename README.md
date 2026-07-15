@@ -28,7 +28,10 @@ http://localhost/reto_symfony/web/frontend_dev.php/
 ```
 
 **Usuario administrador**
-
+```bash
+php symfony doctrine:build --all --and-load
+php symfony guard:create-user --is-super-admin admin@softwaremedico.com SoftwareMedico medico123
+```
 ```text
 Usuario: SoftwareMedico
 Contraseña: medico123
