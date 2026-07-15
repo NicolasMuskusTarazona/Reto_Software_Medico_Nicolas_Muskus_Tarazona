@@ -10,6 +10,12 @@ doctor:
     model:                Doctor
     module:               doctor
     prefix_path:          /doctor
+cita:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Cita
+    module:               citas
+    prefix_path:          /citas
     column:               id
     with_wildcard_routes: true
 
