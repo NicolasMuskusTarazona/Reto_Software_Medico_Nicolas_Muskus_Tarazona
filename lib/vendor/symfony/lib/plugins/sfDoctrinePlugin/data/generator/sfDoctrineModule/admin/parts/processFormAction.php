@@ -3,7 +3,7 @@
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
-      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+      $notice = $form->getObject()->isNew() ? 'El item fue creado correctamente.' : 'El item fue actualizado correctamente.';
 
       try {
         $<?php echo $this->getSingularName() ?> = $form->save();

@@ -16,6 +16,7 @@
       body { background-color: #f4f6f9; }
       .navbar-brand { font-weight: 600; }
       .content-wrapper { padding: 30px 0; }
+      
     </style>
   </head>
   <body>
