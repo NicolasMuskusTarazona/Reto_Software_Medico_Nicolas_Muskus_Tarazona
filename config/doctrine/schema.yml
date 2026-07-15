@@ -1,0 +1,50 @@
+Paciente:
+  columns:
+    nombre:         { type: string(100), notnull: true }
+    apellido:       { type: string(100), notnull: true }
+    documento:      { type: string(20), notnull: true, unique: true }
+    telefono:       { type: string(20) }
+    email:          { type: string(150) }
+    fecha_nacimiento: { type: date }
+  relations:
+    Citas:
+      class: Cita
+      local: id
+      foreign: paciente_id
+      type: many
+      foreignType: one
+
+Doctor:
+  columns:
+    nombre:         { type: string(100), notnull: true }
+    apellido:       { type: string(100), notnull: true }
+    especialidad:   { type: string(100), notnull: true }
+    telefono:       { type: string(20) }
+    email:          { type: string(150) }
+  relations:
+    Citas:
+      class: Cita
+      local: id
+      foreign: doctor_id
+      type: many
+      foreignType: one
+
+Cita:
+  columns:
+    paciente_id:    { type: integer, notnull: true }
+    doctor_id:      { type: integer, notnull: true }
+    fecha:          { type: date, notnull: true }
+    hora:           { type: time, notnull: true }
+    motivo:         { type: string(255) }
+    estado:         { type: string(20), default: pendiente }
+  relations:
+    Paciente:
+      local: paciente_id
+      foreign: id
+      type: one
+      foreignAlias: Citas
+    Doctor:
+      local: doctor_id
+      foreign: id
+      type: one
+      foreignAlias: Citas
