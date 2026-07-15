@@ -23,6 +23,11 @@ test:
     etag:                   false
 
 all:
+  # redirrecion 
+  .actions:
+    login_module: sfGuardAuth
+    login_action: signin
+  
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            61fee52fa3f4dd1824e16b3af729272d28610615
@@ -33,3 +38,8 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    # diseño login
+    enabled_modules:        [default, sfGuardAuth]
+
+
