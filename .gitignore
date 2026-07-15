@@ -1,0 +1,7 @@
+/cache/*
+/log/*
+!/cache/.sf
+!/log/.sf
+web/uploads/assets/*
+!web/uploads/assets/.sf
+config/databases.yml
